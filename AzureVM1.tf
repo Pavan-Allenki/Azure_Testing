@@ -36,7 +36,7 @@ resource "azurerm_managed_disk" "my-managed-disk" {
   disk_encryption_set_id = azurerm_disk_encryption_set.example.id
 }
 
-resource "azurerm_key_vault" "example" {
+resource "azurerm_k_vault" "example" {
   name                        = "des-example-keyvault"
   location                    = azurerm_resource_group.example.location
   resource_group_name         = azurerm_resource_group.example.name
@@ -46,7 +46,7 @@ resource "azurerm_key_vault" "example" {
   purge_protection_enabled    = true
 }
 
-resource "azurerm_key_vault_key" "example" {
+resource "azurerm_k_vault_key" "example" {
   name         = "des-example-key"
   key_vault_id = azurerm_key_vault.example.id
   key_type     = "RSA"
