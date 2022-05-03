@@ -1,4 +1,4 @@
-resource "azurerm_network_security_group" "example1" {
+resource "azurerm_network_security_group" "example2" {
   name                = "acceptanceTestSecurityGroup1"
   location            = "West Europe"
   resource_group_name = "example-resources"
