@@ -1,4 +1,4 @@
-resource "azurerm_virtual_machine" "my-linux-vm" {
+resource "azurerm_virtual_mac" "my-linux-vm" {
   name                  = "my-linux-vm"
   location              = "California"
   resource_group_name   = "some-rg"
