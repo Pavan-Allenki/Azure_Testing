@@ -1,9 +1,9 @@
 
-name: Test
+name: WFRun
 on:
-  pull_request:
-    types: [opened]
-  workflow_dispatch :
+  workflow_run:
+    workflows: [Test]
+    types: [completed]
 env :
   API_URL : "https://int.api.zscwp.io"
   AUTH_URL : "https://int-auth.zscwp.io"
