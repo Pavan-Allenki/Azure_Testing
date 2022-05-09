@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses : ZscalerCWP/Zscaler-IaC-Action@v0.2.1
+      - uses : ZscalerCWP/Zscaler-IaC-Action@v0.3.0
         id : iac-scan
         with:
           client_id : ${{ secrets.ZSCANNER_CLIENT_ID }}
