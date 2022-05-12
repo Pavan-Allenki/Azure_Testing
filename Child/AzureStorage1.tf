@@ -1,4 +1,4 @@
-resource "azurerm_storage_account" "example" {
+resource "azurerm_storage_account" "example1" {
   name                = "storageaccountname"
   resource_group_name = azurerm_resource_group.example.name
 
