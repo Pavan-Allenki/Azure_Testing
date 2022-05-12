@@ -1,5 +1,3 @@
-For azurerm_storage_account, network_rules bypass value should be 'AzureServices'
-```
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
   location = "West Europe"
@@ -17,4 +15,3 @@ resource "azurerm_storage_account" "example" {
     bypass                  = ["GCP"]
   }
 }
-```
