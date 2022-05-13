@@ -1,38 +1,20 @@
-terraform {
-  required_version = ">= 0.12"
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-
-data "aws_availability_zones" "all" {}
-
-resource "aws_autoscaling_group" "example" {
-  launch_configuration = aws_launch_configuration.example.id
-  availability_zones   = data.aws_availability_zones.all.names
-
-  min_size = 2
-  max_size = 2
-
-  # Use for_each to loop over var.custom_tags
-  dynamic "tag" {
-    for_each = var.custom_tags
-    content {
-      key                 = tag.key
-      value               = tag.value
-      propagate_at_launch = true
-    }
+variable "subnet_numbers" {
+  description = "Map from availability zone to the number that should be used for each availability zone's subnet"
+  default     = {
+    "eu-west-1a" = 1
+    "eu-west-1b" = 2
+    "eu-west-1c" = 3
   }
 }
 
-resource "aws_launch_configuration" "example" {
-  image_id        = "ami-07ebfd5b3428b6f4d"
-  instance_type   = "t2.nano"
-
-  lifecycle {
-    create_before_destroy = true
-  }
+resource "aws_vpc" "example" {
+  # ...
 }
 
+resource "aws_subnet" "example" {
+  for_each = var.subnet_numbers
 
+  vpc_id            = aws_vpc.example.id
+  availability_zone = each.key
+  cidr_block        = cidrsubnet(aws_vpc.example.cidr_block, 8, each.value)
+}
