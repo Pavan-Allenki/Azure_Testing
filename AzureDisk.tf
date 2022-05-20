@@ -1,4 +1,4 @@
-resource "azurerm_managed_disk" "managed_disk_good_1" {
+resource "azurerm_managed_disk" "managed_disk_good_123" {
   name                 = "acctestmd"
   location             = "West US 2"
   resource_group_name  = azurerm_resource_group.group.name
