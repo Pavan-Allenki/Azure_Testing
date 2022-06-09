@@ -5,6 +5,6 @@ resource "azurerm_function_app" "remediation_example" {
   app_service_plan_id = azurerm_function_app_plan.example.id
 
   auth_settings {
-    enabled = false
+    enabled = true
   }
 }
