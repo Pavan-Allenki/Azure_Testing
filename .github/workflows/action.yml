@@ -7,8 +7,8 @@ on:
     branches:    
       - 'main'
 env :
-  API_URL : "https://int.api.zscwp.io"
-  AUTH_URL : "https://int-auth.zscwp.io"
+  API_URL : "https://scale.api.zscwp.net"
+  AUTH_URL : "https://scale-auth.zscwp.net"
 jobs:
   test:
     runs-on: ubuntu-latest
