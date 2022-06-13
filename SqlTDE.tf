@@ -1,9 +1,9 @@
-resource "azurerm_resource_group" "example" {
+resource "azurerm_resource_group" "exampleTDE" {
   name     = "example-resources"
   location = "EastUs"
 }
 
-resource "azurerm_sql_server" "example" {
+resource "azurerm_sql_server" "exampleTDE" {
   name                         = "mssqlserver"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
@@ -34,7 +34,7 @@ resource "azurerm_sql_server" "example" {
 }
 
 # Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
-resource "azurerm_key_vault" "example" {
+resource "azurerm_key_vault" "exampleTDE" {
   name                        = "example"
   location                    = azurerm_resource_group.example.location
   resource_group_name         = azurerm_resource_group.example.name
@@ -63,7 +63,7 @@ resource "azurerm_key_vault" "example" {
   }
 }
 
-resource "azurerm_key_vault_key" "example" {
+resource "azurerm_key_vault_key" "exampleTDE" {
   name         = "byok"
   key_vault_id = azurerm_key_vault.example.id
   key_type     = "RSA"
@@ -79,7 +79,7 @@ resource "azurerm_key_vault_key" "example" {
   ]
 }
 
-resource "azurerm_mssql_server_transparent_data_encryption" "example" {
+resource "azurerm_mssql_server_transparent_data_encryption" "exampleTDE" {
   server_id        = azurerm_mssql_server.example.id
   key_vault_key_id = azurerm_key_vault_key.example.id
 }
