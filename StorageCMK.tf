@@ -1,4 +1,4 @@
-resource "azurerm_storage_account" "example" {
+resource "azurerm_storage_account" "exampleCMK" {
   name                     = "storageaccountname"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location
@@ -6,7 +6,7 @@ resource "azurerm_storage_account" "example" {
   account_replication_type = "LRS"
 }
 
-resource "azurerm_key_vault" "example" {
+resource "azurerm_key_vault" "exampleCMK" {
   name                = ""
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
