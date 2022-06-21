@@ -11,7 +11,7 @@ env :
   AUTH_URL : "https://dev-auth.zscwp.io"
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - uses : ZscalerCWP/Zscaler-IaC-Action@main
