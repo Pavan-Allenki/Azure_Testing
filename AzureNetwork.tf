@@ -3,7 +3,7 @@ resource "azurerm_network_security_group" "example" {
   location            = "West Europe"
   resource_group_name = "example-resources"
   security_rule {
-    name                       = "test123"
+    name                       = "test12"
     priority                   = 100
     direction                  = "Inbound"
     access                     = "Allow"
