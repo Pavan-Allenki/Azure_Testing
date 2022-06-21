@@ -1,4 +1,4 @@
-resource "azurerm_app_service" "remediation_example" {
+resource "azurerm_app_service" "remediation_example22" {
     name                = "example-app-service"
     location            = azurerm_resource_group.example.location
     resource_group_name = azurerm_resource_group.example.name
